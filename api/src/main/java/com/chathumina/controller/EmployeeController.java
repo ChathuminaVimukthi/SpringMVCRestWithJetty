@@ -37,24 +37,21 @@ public class EmployeeController {
     @Path("employee")
     @Produces(MediaType.APPLICATION_JSON)
     public Employee listEmployee() throws IOException {
-        Employee employee = employeeService.getEmployee(52);
-        return employee;
+        return employeeService.getEmployee(52);
     }
 
     @GET
     @Path("test")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Employee> listEmployees(){
-        List<Employee> listEmployee = employeeService.getAllEmployees();
-        return listEmployee;
+        return employeeService.getAllEmployees();
     }
 
     @GET
     @Path("employee/{Id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Employee getEmployee(@PathParam("Id") int id){
-        Employee employee = employeeService.getEmployee(id);
-        return employee;
+        return employeeService.getEmployee(id);
     }
 
     @POST
@@ -64,6 +61,19 @@ public class EmployeeController {
         return employeeService.addEmployee(employee);
     }
 
+
+    @DELETE
+    @Path("delete/{Id}")
+    @Produces(MediaType.TEXT_HTML)
+    public String deleteEmployee(@PathParam("Id") int id){
+        if(employeeService.getEmployee(id)==null){
+            return "No user with "+id;
+        }else{
+            Employee employee = employeeService.getEmployee(id);
+            employeeService.deleteEmployee(id);
+            return "Employee with ID "+employee.getId()+" deleted Successfully";
+        }
+    }
 
 
 }
