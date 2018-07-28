@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~    (C) Copyright 2006-2007 hSenid Software International (Pvt) Limited.
+  ~    All Rights Reserved.
+  ~    These materials are unpublished, proprietary, confidential source code of
+  ~    hSenid Software International (Pvt) Limited and constitute a TRADE SECRET
+  ~    of hSenid Software International (Pvt) Limited.
+  ~    hSenid Software International (Pvt) Limited retains all title to and intellectual
+  ~    property rights in these materials.
+  -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -13,3 +23,4 @@
 
 
 </project>
+
