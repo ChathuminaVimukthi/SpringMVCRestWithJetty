@@ -11,8 +11,7 @@
     <modules>
         <module>api</module>
         <module>core</module>
-        <module>web</module>
-        <module>web</module>
+        <module>web-service</module>
     </modules>
 
 

@@ -35,7 +35,7 @@ public class TestController {
 
     @Test
     public void testDelete() {
-        employeeService.deleteEmployee(30);
+        employeeService.deleteEmployee(51);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class TestController {
 
     @Test
     public void testGetEmployee(){
-        Employee employee = employeeService.getEmployee(28);
+        Employee employee = employeeService.getEmployee(60);
         System.out.println("ID : "+employee.getId());
     }
 
