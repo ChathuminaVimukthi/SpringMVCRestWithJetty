@@ -56,6 +56,7 @@ public class EmployeeController {
 
     @POST
     @Path("create")
+    @Consumes({MediaType.APPLICATION_JSON})
     @Produces(MediaType.APPLICATION_JSON)
     public Employee create(@RequestBody Employee employee){
         return employeeService.addEmployee(employee);
