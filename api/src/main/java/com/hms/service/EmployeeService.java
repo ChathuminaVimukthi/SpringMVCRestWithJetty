@@ -13,13 +13,24 @@
  *
  */
 
-package com.chathumina.controller;
+package com.hms.service;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.hms.modal.Employee;
 
-public class Application {
-    public static void main(String[] args) throws Exception {
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans-context.xml", "embedded-jetty-context.xml");
-    }
+import java.util.List;
+
+public interface EmployeeService {
+
+    public Employee addEmployee(Employee employee);
+
+    public List<Employee> getAllEmployees();
+
+    public void deleteEmployee(Integer employeeId);
+
+    public Employee getEmployee(int employeeid);
+
+    public Employee updateEmployee(Employee employee);
+
+    public String print();
+
 }

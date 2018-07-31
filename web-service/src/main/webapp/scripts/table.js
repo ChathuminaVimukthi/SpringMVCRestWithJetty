@@ -13,21 +13,12 @@
  *
  */
 
-package com.chathumina.dao;
+$(document).ready(function () {
 
-import com.chathumina.modal.Employee;
+    $(window).on("load resize ", function () {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({'padding-right': scrollWidth});
+    }).resize();
 
-import java.util.List;
+});
 
-public interface EmployeeDAO {
-
-    public void addEmployee(Employee employee);
-
-    public List<Employee> getAllEmployees();
-
-    public void deleteEmployee(Integer employeeId);
-
-    public Employee updateEmployee(Employee employee);
-
-    public Employee getEmployee(int employeeid);
-}

@@ -13,10 +13,10 @@
  *
  */
 
-package com.chathumina.service;
+package com.hms.service;
 
-import com.chathumina.dao.EmployeeDAO;
-import com.chathumina.modal.Employee;
+import com.hms.dao.EmployeeDAO;
+import com.hms.modal.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +25,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeDAO employeeDAO;

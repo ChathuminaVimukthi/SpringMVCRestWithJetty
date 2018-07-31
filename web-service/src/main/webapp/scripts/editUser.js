@@ -15,12 +15,50 @@
 
 $(document).ready(function () {
 
-    $('.buttonSub').click(function (e) {
+    var userId = localStorage.getItem('userId');
+
+    getUser(userId);
+
+    $('.buttonUp').click(function (e) {
         e.preventDefault();
         phoneNumberValidation();
     });
 
-    function createUser() {
+    function getUser(id) {
+        $.ajax({
+            url: "http://localhost:9999/api/employee/" + id,
+            type: 'GET',
+            jasonp: "callback",
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+                "Accept": "application/json"
+            },
+            dataType: "json",
+            success: function (result) {
+                setData(result);
+            },
+            error: function (e) {
+                alert("Error" + e);
+            }
+        });
+    }
+
+    function setData(user) {
+        var userId = user.id;
+        var userName = user.name;
+        var email = user.email;
+        var tele = user.telephone;
+        var address = user.address;
+
+        $('#id').val(userId);
+        $('#name').val(userName);
+        $('#address').val(address);
+        $('#email').val(email);
+        $('#number').val(tele);
+    }
+
+    function updateUser(id) {
         var formData = {
             name: $("#name").val(),
             address: $("#address").val(),
@@ -29,13 +67,13 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            type: "POST",
-            url: "http://localhost:9999/api/create",
+            url: "http://localhost:9999/api/update/" + id,
+            type: "PUT",
             data: JSON.stringify(formData),
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             success: function (result) {
-                alert("Registration Successful");
+                alert("Update Successful");
                 console.log(result);
             },
             error: function (e) {
@@ -43,8 +81,6 @@ $(document).ready(function () {
                 console.log("ERROR: ", e);
             }
         });
-
-        resetData();
 
     }
 
@@ -54,7 +90,7 @@ $(document).ready(function () {
             alert('Phone number must be 10 digits.');
             $('#number').val('');
         } else {
-            createUser();
+            updateUser(userId);
         }
     }
 
@@ -64,14 +100,6 @@ $(document).ready(function () {
         $("#number").val("");
         $("#email").val("");
     }
+
 });
 
-
-function isNumber(evt) {
-    evt = (evt) ? evt : window.event;
-    var charCode = (evt.which) ? evt.which : evt.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-        return false;
-    }
-    return true;
-}

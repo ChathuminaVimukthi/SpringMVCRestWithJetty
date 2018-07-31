@@ -1,4 +1,4 @@
-package com.chathumina.modal;
+package com.hms.modal;
 
 
 import javax.persistence.*;

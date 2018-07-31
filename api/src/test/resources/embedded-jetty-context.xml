@@ -43,7 +43,7 @@
                             <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
                      </props>
               </property>
-              <property name="packagesToScan" value="com.chathumina.modal" />
+              <property name="packagesToScan" value="com.hms.modal" />
        </bean>
 
        <!-- Transaction -->
@@ -53,15 +53,15 @@
        </bean>
 
 
-       <bean id="employeeService" class="com.chathumina.service.EmployeeServiceImpl"/>
+       <bean id="employeeService" class="com.hms.service.EmployeeServiceImpl"/>
 
-       <bean id="controller" class="com.chathumina.controller.EmployeeController" />
+       <bean id="controller" class="com.hms.controller.EmployeeController" />
 
-       <bean class="com.chathumina.dao.EmployeeDAOImpl" id="employeeDAO" >
+       <bean class="com.hms.dao.EmployeeDAOImpl" id="employeeDAO" >
               <property name="sessionFactory" ref="sessionFactory" />
        </bean>
 
-       <bean class="com.chathumina.controller.EmbeddedServer" init-method="start" destroy-method="stop">
+       <bean class="com.hms.controller.EmbeddedServer" init-method="start" destroy-method="stop">
               <constructor-arg name="contextPath" value="/api"/>
               <constructor-arg name="port" value="9999"/>
               <constructor-arg name="resources">

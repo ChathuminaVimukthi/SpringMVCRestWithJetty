@@ -13,10 +13,10 @@
  *
  */
 
-package com.chathumina.test;
+package com.hms.test;
 
-import com.chathumina.modal.Employee;
-import com.chathumina.service.EmployeeService;
+import com.hms.modal.Employee;
+import com.hms.service.EmployeeService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +39,7 @@ public class TestController {
     }
 
     @Test
-    public void testAdd(){
+    public void testAdd() {
         Employee employee = new Employee();
         employee.setTelephone("11111");
         employee.setEmail("gsjdghs");
@@ -50,17 +50,17 @@ public class TestController {
     }
 
     @Test
-    public void testGetList(){
+    public void testGetList() {
         List<Employee> list = employeeService.getAllEmployees();
-        for (Employee lst:list){
+        for (Employee lst : list) {
             System.out.println(lst.getId());
         }
     }
 
     @Test
-    public void testGetEmployee(){
+    public void testGetEmployee() {
         Employee employee = employeeService.getEmployee(60);
-        System.out.println("ID : "+employee.getId());
+        System.out.println("ID : " + employee.getId());
     }
 
 }

@@ -13,24 +13,26 @@
  *
  */
 
-package com.chathumina.service;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
 
-import com.chathumina.modal.Employee;
+li {
+    float: left;
+}
 
-import java.util.List;
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
 
-public interface EmployeeService {
-
-    public Employee addEmployee(Employee employee);
-
-    public List<Employee> getAllEmployees();
-
-    public void deleteEmployee(Integer employeeId);
-
-    public Employee getEmployee(int employeeid);
-
-    public Employee updateEmployee(Employee employee);
-
-    public String print();
-
+li a:hover {
+    background-color: #111;
 }
