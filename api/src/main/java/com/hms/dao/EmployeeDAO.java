@@ -19,15 +19,21 @@ import com.hms.modal.Employee;
 
 import java.util.List;
 
+/**
+ * @Auther Chathumina Vimukthi
+ *
+ * Data Access Object Layer
+ */
+
 public interface EmployeeDAO {
 
-    public void addEmployee(Employee employee);
+    void addEmployee(Employee employee);
 
-    public List<Employee> getAllEmployees();
+    List<Employee> getAllEmployees();
 
-    public void deleteEmployee(Integer employeeId);
+    void deleteEmployee(Integer employeeId);
 
-    public Employee updateEmployee(Employee employee);
+    Employee updateEmployee(Employee employee);
 
-    public Employee getEmployee(int employeeid);
+    Employee getEmployee(int employeeid);
 }

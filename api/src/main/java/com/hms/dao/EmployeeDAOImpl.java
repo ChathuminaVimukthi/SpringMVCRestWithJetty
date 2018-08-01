@@ -22,25 +22,30 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Implementation of the DAO interface
+ *
+ * @Repository to mark the class as a DAO
+ */
+
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 
     @Autowired
     private SessionFactory sessionFactory;
 
+    //hibernate query to create an employee
     public void addEmployee(Employee employee) {
         sessionFactory.getCurrentSession().saveOrUpdate(employee);
     }
 
+    //hibernate query to get all the employees from db as a list
     @SuppressWarnings("unchecked")
     public List<Employee> getAllEmployees() {
         return sessionFactory.getCurrentSession().createQuery("from Employee").list();
     }
 
+    //hibernate query to delete an employee based on id
     public void deleteEmployee(Integer employeeId) {
         Employee employee = (Employee) sessionFactory.getCurrentSession().load(
                 Employee.class, employeeId);
@@ -49,13 +54,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         }
     }
 
+    //hibernate query to update an employee
     public Employee updateEmployee(Employee employee) {
         sessionFactory.getCurrentSession().update(employee);
         return employee;
     }
 
-    public Employee getEmployee(int employeeid) {
+    //hibernate query to get an employee based on id
+    public Employee getEmployee(int employeeId) {
         return sessionFactory.getCurrentSession().get(
-                Employee.class, employeeid);
+                Employee.class, employeeId);
     }
 }

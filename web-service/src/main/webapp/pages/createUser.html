@@ -1,0 +1,70 @@
+<!--
+  ~
+  ~    (C) Copyright 2006-2007 hSenid Software International (Pvt) Limited.
+  ~    All Rights Reserved.
+  ~
+  ~    These materials are unpublished, proprietary, confidential source code of
+  ~    hSenid Software International (Pvt) Limited and constitute a TRADE SECRET
+  ~    of hSenid Software International (Pvt) Limited.
+  ~
+  ~    hSenid Software International (Pvt) Limited retains all title to and intellectual
+  ~    property rights in these materials.
+  ~
+  ~
+  -->
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../styles/loginForm.css">
+    <link rel="stylesheet" type="text/css" href="../styles/navigationBar.css">
+    <link rel="stylesheet" type="text/css" href="../styles/table.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../scripts/addUser.js"></script>
+    <script type="text/javascript" src="../scripts/listUsers.js"></script>
+</head>
+<body>
+<ul>
+    <li><a class="active" href="../index.html">Home</a></li>
+    <li><a href="#">Register</a></li>
+</ul>
+<div class="login-page">
+    <h1>Create User</h1>
+    <div class="form">
+        <form class="register-form" id="register">
+            <input class="input" type="text" placeholder="name" id="name" required>
+            <input class="input" type="text" placeholder="address" id="address" required>
+            <input class="input" type="email" placeholder="email address" id="email" required>
+            <input class="input" type="text" placeholder="tel" id="number" onkeypress="return isNumber(event)" required>
+            <input class="buttonSub" type="submit">
+            <button class="cancel">cancel</button>
+        </form>
+    </div>
+</div>
+
+<!--Confirm Modal -->
+<div class="modal fade" id="confirmModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLongTitle">Employee Created Successfully!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

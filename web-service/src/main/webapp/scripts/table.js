@@ -15,6 +15,7 @@
 
 $(document).ready(function () {
 
+    //method to make the index table resizable
     $(window).on("load resize ", function () {
         var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
         $('.tbl-header').css({'padding-right': scrollWidth});

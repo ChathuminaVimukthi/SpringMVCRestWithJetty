@@ -15,15 +15,18 @@
 
 $(document).ready(function () {
 
+    //getting the userId stored in local storage
     var userId = localStorage.getItem('userId');
 
     getUser(userId);
 
-    $('.buttonUp').click(function (e) {
+    //click event handler for update button in editUser form
+    $('#update').submit(function (e) {
         e.preventDefault();
-        phoneNumberValidation();
+        updateUser(userId);
     });
 
+    //getting the user data from db where userId is given
     function getUser(id) {
         $.ajax({
             url: "http://localhost:9999/api/employee/" + id,
@@ -32,7 +35,8 @@ $(document).ready(function () {
             contentType: "application/json; charset=utf-8",
             headers: {
                 "Content-Type": "application/json; charset=utf-8",
-                "Accept": "application/json"
+                "Accept": "application/json",
+                'Access-Control-Allow-Origin': '*'
             },
             dataType: "json",
             success: function (result) {
@@ -44,6 +48,7 @@ $(document).ready(function () {
         });
     }
 
+    //populating the editUser form with the data
     function setData(user) {
         var userId = user.id;
         var userName = user.name;
@@ -58,6 +63,7 @@ $(document).ready(function () {
         $('#number').val(tele);
     }
 
+    //update method to update the new values for the given employeeId
     function updateUser(id) {
         var formData = {
             name: $("#name").val(),
@@ -71,9 +77,12 @@ $(document).ready(function () {
             type: "PUT",
             data: JSON.stringify(formData),
             contentType: "application/json; charset=utf-8",
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            },
             dataType: 'json',
             success: function (result) {
-                alert("Update Successful");
+                $('#confirmModalLong').modal('show');
                 console.log(result);
             },
             error: function (e) {
@@ -83,23 +92,9 @@ $(document).ready(function () {
         });
 
     }
-
-    function phoneNumberValidation() {
-        var number = $('#number').val();
-        if (number.length !== 10) {
-            alert('Phone number must be 10 digits.');
-            $('#number').val('');
-        } else {
-            updateUser(userId);
-        }
-    }
-
-    function resetData() {
-        $("#name").val("");
-        $("#address").val("");
-        $("#number").val("");
-        $("#email").val("");
-    }
-
 });
 
+//redirect function
+function redirect() {
+    window.location.href = "../index.html";
+}

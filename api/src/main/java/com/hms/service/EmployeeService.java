@@ -19,6 +19,10 @@ import com.hms.modal.Employee;
 
 import java.util.List;
 
+/**
+ * Service layer interface
+ */
+
 public interface EmployeeService {
 
     public Employee addEmployee(Employee employee);
@@ -30,7 +34,5 @@ public interface EmployeeService {
     public Employee getEmployee(int employeeid);
 
     public Employee updateEmployee(Employee employee);
-
-    public String print();
 
 }

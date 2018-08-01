@@ -15,6 +15,7 @@
 
 $(document).ready(function () {
 
+    //declaring the header values
     var headers = {
         "Content-Type": "application/json; charset=utf-8",
         "Accept": "application/json"
@@ -22,6 +23,7 @@ $(document).ready(function () {
 
     getUserList();
 
+    //method to get the Employee list
     function getUserList() {
         $.ajax({
             url: "http://localhost:9999/api/test",
@@ -39,8 +41,8 @@ $(document).ready(function () {
                         $('<td>').text(user.address),
                         $('<td>').text(user.telephone),
                         $('<td>').text(user.email),
-                        $('<td>').innerHTML = '<button class="btn-delete" onclick="deleteUser(' + id + ')">Delete</button>',
-                        $('<td>').innerHTML = '<button class="btn-edit" onclick="getUser(' + id + ')">Edit</button>');
+                        $('<td>').innerHTML = '<button class="btn-delete" data-toggle="modal" data-target="#exampleModalLong" onclick="setUserIdDelete(' + id + ')">Delete</button>',
+                        $('<td>').innerHTML = '<button class="btn-edit" data-toggle="modal" data-target="#editModalLong" onclick="setUserIdEdit(' + id + ')">Edit</button>');
                     $('.tbl-content .user_info').append($tr);
                 });
 
@@ -53,6 +55,23 @@ $(document).ready(function () {
 
 });
 
+//calling the delete method
+function setUserIdDelete(userId) {
+    var userId = userId;
+    $('.btn-primary').click(function () {
+        deleteUser(userId);
+    });
+}
+
+//calling the edit Method
+function setUserIdEdit(userId) {
+    var userId = userId;
+    $('#confirmBtn').click(function () {
+        getUser(userId);
+    });
+}
+
+//method to delete an employee
 function deleteUser(id) {
     $.ajax({
         url: "http://localhost:9999/api/delete/" + id,
@@ -67,6 +86,7 @@ function deleteUser(id) {
     });
 }
 
+//get employee details when employee id is given
 function getUser(id) {
     $.ajax({
         url: "http://localhost:9999/api/employee/" + id,
@@ -75,12 +95,13 @@ function getUser(id) {
         contentType: "application/json; charset=utf-8",
         headers: {
             "Content-Type": "application/json; charset=utf-8",
-            "Accept": "application/json"
+            "Accept": "application/json",
+            'Access-Control-Allow-Origin': '*'
         },
         dataType: "json",
         success: function (result) {
             getId(result);
-            window.location.href = "http://localhost:8080/pages/editUser.jsp";
+            window.location.href = "../pages/editUser.html";
         },
         error: function (e) {
             alert("Error" + e);
@@ -88,6 +109,7 @@ function getUser(id) {
     });
 }
 
+//method to store the employeeId in local storage
 function getId(user) {
     var id = user.id;
     localStorage.setItem('userId', id);

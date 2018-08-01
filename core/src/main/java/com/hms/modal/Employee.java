@@ -4,6 +4,16 @@ package com.hms.modal;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * persistence layer.
+ *
+ * @Entity is used to mark this class as an entity bean.
+ * @Table is used to specify the table to persist data.
+ * @Id is used to specify the identifier property of entity bean.
+ * @GeneratedValue is used to specify the primary key generation strategy.
+ * @Column to specify the columns in the db
+ */
+
 @Entity
 @Table(name = "EMP_TBL")
 public class Employee implements Serializable {

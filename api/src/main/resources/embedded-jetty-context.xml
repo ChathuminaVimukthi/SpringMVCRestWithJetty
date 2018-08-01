@@ -57,13 +57,11 @@
 
     <bean id="controller" class="com.hms.controller.EmployeeController"/>
 
-    <bean class="com.hms.dao.EmployeeDAOImpl" id="employeeDAO">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    <bean class="com.hms.dao.EmployeeDAOImpl" id="employeeDAO"/>
 
     <bean class="com.hms.controller.EmbeddedServer" init-method="start" destroy-method="stop">
         <constructor-arg name="contextPath" value="/api"/>
-        <constructor-arg name="port" value="9999"/>
+        <constructor-arg name="port" value="8081"/>
         <constructor-arg name="resources">
             <list>
                 <ref bean="controller"/>

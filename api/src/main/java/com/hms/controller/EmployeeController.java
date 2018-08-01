@@ -25,13 +25,25 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+/**
+ * @Auther Chatumina Vimukthi
+ *
+ * Controller Layer
+ * @Path the url path which the api will start on
+ * @Autowired  to injects object dependency implicitly
+ * @GET to mark a method as a get method
+ * @POST to mark a method as a post request method
+ * @PUT to mark a method as a put request method
+ * @DELETE to mark a method as a delete request method
+ */
+
 @Path("/")
 public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
 
-
+    //method to get all the employees in db as a list of json objects
     @GET
     @Path("test")
     @Produces(MediaType.APPLICATION_JSON)
@@ -39,6 +51,7 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
 
+    //method to get one employee when employeeId is given
     @GET
     @Path("employee/{Id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -46,6 +59,7 @@ public class EmployeeController {
         return employeeService.getEmployee(id);
     }
 
+    //method to create an employee in db
     @POST
     @Path("create")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -54,7 +68,7 @@ public class EmployeeController {
         return employeeService.addEmployee(employee);
     }
 
-
+    //method to delete an employee when id is given
     @DELETE
     @Path("delete/{Id}")
     @Produces(MediaType.TEXT_HTML)
@@ -68,6 +82,7 @@ public class EmployeeController {
         }
     }
 
+    //method to update an employee when id is given
     @PUT
     @Path("update/{Id}")
     @Produces(MediaType.APPLICATION_JSON)

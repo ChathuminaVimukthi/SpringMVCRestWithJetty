@@ -15,11 +15,18 @@
 
 $(document).ready(function () {
 
-    $('.buttonSub').click(function (e) {
+    //click event handler method on submit button in createUser form
+    $('#register').submit(function (e) {
         e.preventDefault();
-        phoneNumberValidation();
+        createUser();
     });
 
+    $('.cancel').click(function (e) {
+        e.preventDefault();
+        window.location.href = "../index.html"
+    });
+
+    //ajax method to create a user in db using the details passed from the createUser form
     function createUser() {
         var formData = {
             name: $("#name").val(),
@@ -33,9 +40,12 @@ $(document).ready(function () {
             url: "http://localhost:9999/api/create",
             data: JSON.stringify(formData),
             contentType: "application/json; charset=utf-8",
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            },
             dataType: 'json',
             success: function (result) {
-                alert("Registration Successful");
+                $('#confirmModalLong').modal('show');
                 console.log(result);
             },
             error: function (e) {
@@ -48,16 +58,7 @@ $(document).ready(function () {
 
     }
 
-    function phoneNumberValidation() {
-        var number = $('#number').val();
-        if (number.length !== 10) {
-            alert('Phone number must be 10 digits.');
-            $('#number').val('');
-        } else {
-            createUser();
-        }
-    }
-
+    //method to reset data after the form submitted
     function resetData() {
         $("#name").val("");
         $("#address").val("");
@@ -66,7 +67,7 @@ $(document).ready(function () {
     }
 });
 
-
+//validate the input for phone number to be a numeric value
 function isNumber(evt) {
     evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;

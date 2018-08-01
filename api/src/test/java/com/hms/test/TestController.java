@@ -17,6 +17,7 @@ package com.hms.test;
 
 import com.hms.modal.Employee;
 import com.hms.service.EmployeeService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +34,13 @@ public class TestController {
     @Autowired
     private EmployeeService employeeService;
 
+    @Ignore
     @Test
     public void testDelete() {
         employeeService.deleteEmployee(51);
     }
 
+    @Ignore
     @Test
     public void testAdd() {
         Employee employee = new Employee();
@@ -49,6 +52,7 @@ public class TestController {
         employeeService.addEmployee(employee);
     }
 
+    @Ignore
     @Test
     public void testGetList() {
         List<Employee> list = employeeService.getAllEmployees();
@@ -57,6 +61,7 @@ public class TestController {
         }
     }
 
+    @Ignore
     @Test
     public void testGetEmployee() {
         Employee employee = employeeService.getEmployee(60);
