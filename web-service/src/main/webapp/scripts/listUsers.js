@@ -26,7 +26,7 @@ $(document).ready(function () {
     //method to get the Employee list
     function getUserList() {
         $.ajax({
-            url: "http://localhost:9999/api/test",
+            url: "http://localhost:8081/api/test",
             type: 'GET',
             jasonp: "callback",
             contentType: "application/json; charset=utf-8",
@@ -74,7 +74,7 @@ function setUserIdEdit(userId) {
 //method to delete an employee
 function deleteUser(id) {
     $.ajax({
-        url: "http://localhost:9999/api/delete/" + id,
+        url: "http://localhost:8081/api/delete/" + id,
         type: 'DELETE',
         success: function () {
             window.location.href = "http://localhost:8080"
@@ -89,7 +89,7 @@ function deleteUser(id) {
 //get employee details when employee id is given
 function getUser(id) {
     $.ajax({
-        url: "http://localhost:9999/api/employee/" + id,
+        url: "http://localhost:8081/api/employee/" + id,
         type: 'GET',
         jasonp: "callback",
         contentType: "application/json; charset=utf-8",

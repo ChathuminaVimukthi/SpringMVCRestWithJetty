@@ -29,7 +29,7 @@ $(document).ready(function () {
     //getting the user data from db where userId is given
     function getUser(id) {
         $.ajax({
-            url: "http://localhost:9999/api/employee/" + id,
+            url: "http://localhost:8081/api/employee/" + id,
             type: 'GET',
             jasonp: "callback",
             contentType: "application/json; charset=utf-8",
@@ -73,7 +73,7 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            url: "http://localhost:9999/api/update/" + id,
+            url: "http://localhost:8081/api/update/" + id,
             type: "PUT",
             data: JSON.stringify(formData),
             contentType: "application/json; charset=utf-8",

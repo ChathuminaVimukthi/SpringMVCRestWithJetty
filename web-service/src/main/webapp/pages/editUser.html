@@ -29,7 +29,6 @@
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="../scripts/listUsers.js"></script>
     <script type="text/javascript" src="../scripts/editUser.js"></script>
-
 </head>
 <body>
 <ul>
@@ -40,11 +39,26 @@
     <h1>Edit User</h1>
     <div class="form">
         <form class="register-form" id="update" action="/action_page">
-            <input class="input" type="text" id="id" readonly>
-            <input class="input" type="text" placeholder="name" id="name" required>
-            <input class="input" type="text" placeholder="address" id="address" required>
-            <input class="input" type="email" placeholder="email address" id="email" required>
-            <input class="input" type="text" placeholder="tel" id="number" onkeypress="return isNumber(event)" required>
+            <div>
+                <label style="float: left"><b>ID :</b></label>
+                <input class="input" type="text" id="id" readonly>
+            </div>
+            <div>
+                <label style="float: left"><b>Name :</b></label>
+                <input class="input" type="text" placeholder="name" id="name" required>
+            </div>
+            <div>
+                <label style="float: left"><b>Address :</b></label>
+                <input class="input" type="text" placeholder="address" id="address" required>
+            </div>
+            <div>
+                <label style="float: left"><b>Email :</b></label>
+                <input class="input" type="email" placeholder="email address" id="email" required>
+            </div>
+            <div>
+                <label style="float: left"><b>Tel :</b></label>
+                <input class="input" type="text" placeholder="tel" id="number" onkeypress="return isNumber(event)" required>
+            </div>
             <input type="submit" class="buttonUp">
             <button class="cancel">cancel</button>
         </form>
@@ -68,6 +82,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>

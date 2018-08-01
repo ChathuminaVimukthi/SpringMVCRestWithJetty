@@ -1,1 +1,22 @@
-//SQL...
+//Create a EMP_DB table in MySQL database. SQL statement to create the table is given below.
+//Database name - spring
+
+CREATE TABLE `EMP_TBL` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `address` varchar(45) NOT NULL,
+  `telephone` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
+
+//Insert data query
+
+INSERT INTO `EMP_TBL` (`id`, `name`, `email`, `address`, `telephone`) VALUES
+(25, 'Chathumina', 'cc@gmail.com', 'Galle', '0770000000'),
+(26, 'Chathumina', 'cc@gmail.com', 'Galle', '0770000000'),
+(27, 'Chathumina', 'cc@gmail.com', 'Galle', '0770000000'),
+(28, 'Chathumina', 'cc@gmail.com', 'Galle', '0770000000'),
+(29, 'Chathumina', 'cc@gmail.com', 'Galle', '0770000000'),
+(31, 'Chathumina', 'cc@gmail.com', 'Galle', '0770000000');

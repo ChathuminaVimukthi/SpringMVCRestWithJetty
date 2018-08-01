@@ -1,4 +1,5 @@
-# README SpringMVCRestWithJetty
+# README - SpringMVCRestWithJetty
+---------------------------------
 
 Simple user management system that performs CRUD operations.
 Available features are,
@@ -18,8 +19,15 @@ Environment
 * Jetty 9.3.8.v20160314
 * Hibernate 5.3.2.Final
 
-How to build
-------------
+How to set up the MySql Database
+--------------------------------
+
+* Create a database using mysql.
+    * Database name - spring
+* Create the EMP_TBL sql table using the queries in databaseSQL.txt file. 
+
+How to build & run the project
+------------------------------
 
 * Import project.
 * Build the project.
@@ -31,12 +39,3 @@ How to build
 * To start the web-service,
     * Simply deploy the webservice:war exploded artifact in Tomcat Server and define a different port like 8080.
 * index.html will start on localhost:8080 port and will listen to api calls from localhost:8081.
-
-How to set up the project
--------------------------
-
-Create a database using mysql.
-Import the given database.sql configuration file using a mysql client.
-Database and Table creation query can be found in databaseSQL.txt file. 
-
-
