@@ -21,19 +21,46 @@ import java.util.List;
 
 /**
  * @Auther Chathumina Vimukthi
- *
+ * <p>
  * Data Access Object Layer
  */
 
 public interface EmployeeDAO {
 
+    /**
+     * Method to add an employee
+     *
+     * @param employee Employee object
+     */
     void addEmployee(Employee employee);
 
+    /**
+     * Method to get all the employees from db
+     *
+     * @return a List of employees will be returned
+     */
     List<Employee> getAllEmployees();
 
+    /**
+     * Method to delete an Employee
+     *
+     * @param employeeId employeeId of the Employee to delete
+     */
     void deleteEmployee(Integer employeeId);
 
+    /**
+     * Method to update the details of an employee
+     *
+     * @param employee Employee Object to update the details
+     * @return Employee object with updated details will be returned
+     */
     Employee updateEmployee(Employee employee);
 
-    Employee getEmployee(int employeeid);
+    /**
+     * Method to get an Employee where ID is given
+     *
+     * @param employeeId EmployeeId of the Employee
+     * @return Employee object with the given Id will be returned
+     */
+    Employee getEmployee(int employeeId);
 }

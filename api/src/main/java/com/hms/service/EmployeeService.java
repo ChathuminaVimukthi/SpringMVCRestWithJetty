@@ -25,14 +25,42 @@ import java.util.List;
 
 public interface EmployeeService {
 
-    public Employee addEmployee(Employee employee);
+    /**
+     * Method to add an Employee to db
+     *
+     * @param employee Employee object
+     * @return newly created Employee object will be returned
+     */
+    Employee addEmployee(Employee employee);
 
-    public List<Employee> getAllEmployees();
+    /**
+     * Method to get all the Employees from db
+     *
+     * @return a List of Employee objects will be returned
+     */
+    List<Employee> getAllEmployees();
 
-    public void deleteEmployee(Integer employeeId);
+    /**
+     * Method to delete an Employee when employeeId is given
+     *
+     * @param employeeId employeeId of the Employee to delete
+     */
+    void deleteEmployee(Integer employeeId);
 
-    public Employee getEmployee(int employeeid);
+    /**
+     * Method to get an Employee object from db when employeeId is given
+     *
+     * @param employeeid employeeId of the Employee
+     * @return Employee object will be returned
+     */
+    Employee getEmployee(int employeeid);
 
-    public Employee updateEmployee(Employee employee);
+    /**
+     * Method to update the details of an Employee
+     *
+     * @param employee Employee object to be updated
+     * @return Employee object with updated details will be returned
+     */
+    Employee updateEmployee(Employee employee);
 
 }
