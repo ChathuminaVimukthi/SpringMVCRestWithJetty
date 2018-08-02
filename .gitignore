@@ -32,6 +32,7 @@ target/
 *.idea
 .idea/
 out/
+target/
 
 # eclipse project file
 .settings/

@@ -28,6 +28,7 @@ $(document).ready(function () {
 
     //ajax method to create a user in db using the details passed from the createUser form
     function createUser() {
+        var usrl
         var formData = {
             name: $("#name").val(),
             address: $("#address").val(),

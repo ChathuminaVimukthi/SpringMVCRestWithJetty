@@ -58,7 +58,7 @@ $(document).ready(function () {
 //calling the delete method
 function setUserIdDelete(userId) {
     var userId = userId;
-    $('.btn-primary').click(function () {
+    $('#deleteConfirm').click(function () {
         deleteUser(userId);
     });
 }
